@@ -48,6 +48,12 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem 'image_processing', '~> 1.2'
 
+# Supported ENV
+gem 'figaro'
+
+# Support import data from excel/csv
+gem 'roo', '~> 2.10.0'
+
 # a Ruby static code analyzer and code formatter
 gem 'rubocop'
 
