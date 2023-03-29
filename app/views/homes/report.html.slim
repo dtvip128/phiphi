@@ -4,129 +4,71 @@ html[lang="en"]
     meta[charset="utf-8"]
     title
       | Example 1
-    link[rel="stylesheet" href="style.css" media="all"]
+    link[rel="stylesheet" href="salary_template.css" media="all"]
   body
     header.clearfix
       #logo
-        img[src="logo.png"]
+        = image_tag "paracel-logo.png"
       h1
-        | INVOICE 3-2-1
+        | Salary Report #{Date.current.month}-#{Date.current.year}
       #company.clearfix
         div
-          | Company Name
+          | Paracel Technology Solutions .Ltd Company
         div
-          | 455 Foggy Heights,
+          | Lo 15B3, 1 Bui Ta Han, 
           br
-          |  AZ 85004, US
+          | Khue My, Ngu Hanh Son, Đa Nang,
         div
-          | (602) 519-0450
+          | 090 506 05 13
         div
-          a[href="mailto:company@example.com"]
-            | company@example.com
+          a[href="mailto:paracel@example.com"]
+            | paracel@example.com
       #project
         div
           span
-            | PROJECT
-          |  Website development
+            | Ho va Ten:
+          | Xep
         div
           span
-            | CLIENT
-          |  John Doe
-        div
-          span
-            | ADDRESS
-          |  796 Silver Harbour, TX 79273, US
-        div
-          span
-            | EMAIL
-          a[href="mailto:john@example.com"]
-            | john@example.com
-        div
-          span
-            | DATE
-          |  August 17, 2015
-        div
-          span
-            | DUE DATE
-          |  September 17, 2015
+            | Email:
+          a[href="mailto:#{@row[:email]}"]
+            = @row[:email]
     main
       table
         thead
           tr
+            th
+              | STT
             th.service
-              | SERVICE
+              | Loai
             th.desc
-              | DESCRIPTION
+              | Mo ta
             th
-              | PRICE
             th
-              | QTY
-            th
-              | TOTAL
+              | So tien
         tbody
-          tr
-            td.service
-              | Design
-            td.desc
-              | Creating a recognizable design solution based on the company's existing visual identity
-            td.unit
-              | $40.00
-            td.qty
-              | 26
-            td.total
-              | $1,040.00
-          tr
-            td.service
-              | Development
-            td.desc
-              | Developing a Content Management System-based Website
-            td.unit
-              | $40.00
-            td.qty
-              | 80
-            td.total
-              | $3,200.00
-          tr
-            td.service
-              | SEO
-            td.desc
-              | Optimize the site for search engines (SEO)
-            td.unit
-              | $40.00
-            td.qty
-              | 20
-            td.total
-              | $800.00
-          tr
-            td.service
-              | Training
-            td.desc
-              | Initial training sessions for staff responsible for uploading web content
-            td.unit
-              | $40.00
-            td.qty
-              | 4
-            td.total
-              | $160.00
-          tr
-            td[colspan="4"]
-              | SUBTOTAL
-            td.total
-              | $5,200.00
-          tr
-            td[colspan="4"]
-              | TAX 25%
-            td.total
-              | $1,300.00
+          - @vn_headers.each_with_index do |(key, header), index|
+            - break if index == 14
+            tr
+              td style="text-align: center;"
+                = index + 1
+              td.service
+                = header
+              td.desc
+                | 22 ngay/thang
+              td
+              td.total style="text-align: center;"
+                = @row[key]
+      
           tr
             td.grand.total[colspan="4"]
-              | GRAND TOTAL
+              = @vn_headers[:total_income_received]
             td.grand.total
-              | $6,500.00
+              = @row[:total_income_received]
       #notices
         div
           | NOTICE:
         .notice
-          | A finance charge of 1.5% will be made on unpaid balances after 30 days.
+          | If there is a mistake in income, please report it to the accountant.
     footer
-      |  Invoice was created on a computer and is valid without the signature and seal. 
+      |  Report created by Xep.
