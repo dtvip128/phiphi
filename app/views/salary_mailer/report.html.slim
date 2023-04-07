@@ -10,7 +10,7 @@ html[lang="en"]
       / #logo
       /   = image_tag "paracel-logo.png"
       h1
-        | Salary Report #{Date.current.month}-#{Date.current.year}
+        | Bảng lương #{Date.current.month - 1}-#{Date.current.year}
       #company.clearfix
         div
           | Paracel Technology Solutions .Ltd Company
@@ -24,8 +24,8 @@ html[lang="en"]
       #project
         div
           span
-            | Ho va Ten:
-          | Xep
+            | Họ và tên:
+          = @row[:full_name]
         div
           span
             | Email:
@@ -38,12 +38,12 @@ html[lang="en"]
             th
               | STT
             th.service
-              | Loai
+              | Loại
             th.desc
-              | Mo ta
+              | Mô tả
             th
             th
-              | So tien
+              | Số tiền
         tbody
           - @vn_headers.each_with_index do |(key, header), index|
             - break if index == 14
@@ -53,7 +53,7 @@ html[lang="en"]
               td.service
                 = header
               td.desc
-                | 22 ngay/thang
+                / | 22 ngay/thang
               td
               td.total style="text-align: center;"
                 = @row[key]
@@ -62,10 +62,10 @@ html[lang="en"]
               = @vn_headers[:total_income_received]
             td.grand.total
               = @row[:total_income_received]
-      #notices
-        div
-          | NOTICE:
-        .notice
-          | If there is a mistake in income, please report it to the accountant.
+      / #notices
+      /   div
+      /     | NOTICE:
+      /   .notice
+      /     | If there is a mistake in income, please report it to the accountant.
     / footer
     /   |  Report created by Xep.
