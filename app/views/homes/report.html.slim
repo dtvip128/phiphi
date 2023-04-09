@@ -44,7 +44,7 @@ html[lang="en"]
             th.desc
               | Mo ta
             th
-            th
+            th.desc
               | So tien
         tbody
           - @vn_headers.each_with_index do |(key, header), index|
@@ -57,14 +57,19 @@ html[lang="en"]
               td.desc
                 | 22 ngay/thang
               td
-              td.total style="text-align: center;"
-                = @row[key]
+              td.total style="text-align: left;"
+                - if key == :tax_rate
+                  | #{@row[key]}%
+                - elsif key == :number_of_dependents
+                  = @row[key]
+                - else
+                  = number_to_currency(@row[key], precision: 0, unit: "VND", format: "%n %u")
       
           tr
             td.grand.total[colspan="4"]
               = @vn_headers[:total_income_received]
             td.grand.total
-              = @row[:total_income_received]
+              = number_to_currency @row[:total_income_received]
       #notices
         div
           | NOTICE:
