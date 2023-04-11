@@ -81,4 +81,5 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+  config.hosts << "3566-222-255-153-78.ap.ngrok.io"
 end

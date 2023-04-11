@@ -1,79 +1,67 @@
-doctype html
-html[lang="en"]
-  head
-    meta[charset="utf-8"]
-    title
-      | Example 1
-    link[rel="stylesheet" href="salary_template.css" media="all"]
-  body
-    header.clearfix
-      #logo
-        = image_tag "paracel-logo.png"
-      h1
-        | Salary Report #{Date.current.month}-#{Date.current.year}
-      #company.clearfix
-        div
-          | Paracel Technology Solutions .Ltd Company
-        div
-          | Lo 15B3, 1 Bui Ta Han, 
-          br
-          | Khue My, Ngu Hanh Son, Đa Nang,
-        div
-          | 090 506 05 13
-        div
-          a[href="mailto:paracel@example.com"]
-            | paracel@example.com
-      #project
-        div
-          span
-            | Ho va Ten:
-          | Xep
-        div
-          span
-            | Email:
-          a[href="mailto:#{@row[:email]}"]
-            = @row[:email]
-    main
-      table
-        thead
-          tr
-            th
-              | STT
-            th.service
-              | Loai
-            th.desc
-              | Mo ta
-            th
-            th.desc
-              | So tien
-        tbody
-          - @vn_headers.each_with_index do |(key, header), index|
-            - break if index == 14
-            tr
-              td style="text-align: center;"
-                = index + 1
-              td.service
-                = header
-              td.desc
-                | 22 ngay/thang
-              td
-              td.total style="text-align: left;"
-                - if key == :tax_rate
-                  | #{@row[key]}%
-                - elsif key == :number_of_dependents
-                  = @row[key]
-                - else
-                  = number_to_currency(@row[key], precision: 0, unit: "VND", format: "%n %u")
-      
-          tr
-            td.grand.total[colspan="4"]
-              = @vn_headers[:total_income_received]
-            td.grand.total
-              = number_to_currency @row[:total_income_received]
-      #notices
-        div
-          | NOTICE:
-        .notice
-          | If there is a mistake in income, please report it to the accountant.
-    footer
-      |  Report created by Xep.
+= stylesheet_link_tag "salary_template.css", media: "all"
+header.clearfix
+  #logo
+    = image_tag "paracel-logo.png"
+  h1
+    | Salary Report #{Date.current.month}-#{Date.current.year}
+  #company.clearfix
+    div
+      | Paracel Technology Solutions .Ltd Company
+    div
+      | Lo 15B3, 1 Bui Ta Han, 
+      br
+      | Khue My, Ngu Hanh Son, Đa Nang,
+    div
+      | 090 506 05 13
+    div
+      a[href="mailto:paracel@example.com"]
+        | paracel@example.com
+  #project
+    div
+      span
+        | Ho va Ten:
+      | Xep
+    div
+      span
+        | Email:
+      a[href="mailto:#{@row[:email]}"]
+        = @row[:email]
+main
+  table
+    thead
+      tr
+        th
+          | STT
+        th.service
+          | Loai
+        th.desc
+          | Mo ta
+        th
+        th
+          | So tien
+    tbody
+      - @vn_headers.each_with_index do |(key, header), index|
+        - break if index == 14
+        tr
+          td style="text-align: center;"
+            = index + 1
+          td.service
+            = header
+          td.desc
+            | 22 ngay/thang
+          td
+          td.total style="text-align: center;"
+            = @row[key]
+  
+      tr
+        td.grand.total[colspan="4"]
+          = @vn_headers[:total_income_received]
+        td.grand.total
+          = @row[:total_income_received]
+  #notices
+    div
+      | NOTICE:
+    .notice
+      | If there is a mistake in income, please report it to the accountant.
+footer
+  |  Report created by Xep.
