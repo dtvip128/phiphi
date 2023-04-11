@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'homes/report'
 
   # Defines the root path route ("/")
-  root 'homes#index'
+  root 'imports#new'
 end
