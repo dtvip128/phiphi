@@ -72,6 +72,7 @@ group :development, :test do
 
   # Debugging support
   gem 'pry'
+  gem 'pry-byebug'
   gem 'pry-rails'
 end
 
