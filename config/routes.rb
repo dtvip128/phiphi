@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'imports#new'
+
+  namespace :admin do
+    resources :dashboard, only: :index
+  end
 end

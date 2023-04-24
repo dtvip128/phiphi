@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+npm install
+yarn add vite
 
-Things you may want to cover:
+rails db:migrate
 
-* Ruby version
+# Run localhost:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+foreman start -f Procfile.dev
