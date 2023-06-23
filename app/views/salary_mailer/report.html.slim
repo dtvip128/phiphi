@@ -51,6 +51,8 @@ main
           td.total.desc
             - if key == :tax_rate
               = "#{@row[key]*100}%"
+            - elsif %i[working_day number_of_dependents].include?(key)
+              = @row[key]
             - else
               = number_to_currency(@row[key], unit: "VND", format: "%n %u", precision: 0)
       tr

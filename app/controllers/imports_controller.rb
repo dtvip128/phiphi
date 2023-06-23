@@ -4,11 +4,11 @@ class ImportsController < ApplicationController
 
   def create
     @vn_headers = {
-      salary_by_working_day: 'Lương theo ngày công',
-      overtime_salary: 'Lương làm thêm giờ',
-      total_salary: 'Tổng tiền lương',
-      lunch_money: 'Tiền ăn trưa',
-      gas_money: 'Xăng xe',
+      main_salary: 'Lương Chính',
+      working_day: 'Ngày công',
+      salary_by_working_day: 'Lương theo chấm công',
+      overtime_salary: 'Làm thêm giờ',
+      bonus_month: 'Thưởng theo tháng',
       other: 'Khác',
       total_taxable_income: 'Tổng thu nhập chịu thuế',
       own: 'Bản thân',
