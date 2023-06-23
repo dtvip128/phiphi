@@ -1,6 +1,6 @@
 class SalaryMailer < ApplicationMailer
   KEY_HEADERS = %i[
-    full_name salary_by_working_day overtime_salary total_salary lunch_money gas_money other
+    full_name main_salary working_day salary_by_working_day overtime_salary bonus_month other
     total_taxable_income own number_of_dependents total_deductible_income_for_dependants
     social_insurance_deduction_amount total_deductions taxable_income tax_rate personal_income_tax
     total_income_received month email
