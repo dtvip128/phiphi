@@ -1,7 +1,7 @@
-class ImportsController < ApplicationController
-  def new
-  end
+class ImportsController < ApplicationController # rubocop:disable Style/Documentation
+  def new; end
 
+  # rubocop:disable Metrics/MethodLength
   def create
     @vn_headers = {
       main_salary: 'Lương Chính',
@@ -19,6 +19,7 @@ class ImportsController < ApplicationController
       taxable_income: 'Thu nhập tính thuế',
       tax_rate: 'Thuế suất',
       personal_income_tax: 'Thuế TNCN phải nộp',
+      paid_bonuses: 'Đã thanh toán',
       total_income_received: 'Lương thực lĩnh'
     }
 

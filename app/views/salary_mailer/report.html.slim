@@ -38,8 +38,9 @@ main
         th.desc
           | Số tiền
     tbody
+      - header_size = @vn_headers.size
       - @vn_headers.each_with_index do |(key, header), index|
-        - break if index == 15
+        - break if index == header_size - 1
         tr
           td style="text-align: center;"
             = index + 1
