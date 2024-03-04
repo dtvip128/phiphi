@@ -51,7 +51,7 @@ main
           td
           td.total.desc
             - if key == :tax_rate
-              = "#{@row[key]*100}%"
+              = @row[key].nil? ? "0%" : "#{@row[key]*100}%"
             - elsif %i[working_day number_of_dependents].include?(key)
               = @row[key]
             - else
