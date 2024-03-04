@@ -1,6 +1,8 @@
+# rubocop:disable Style/Documentation
 class HomesController < ApplicationController
   def index; end
 
+  # rubocop:disable Metrics/MethodLength
   def report
     @row = {
       email: 'dat.tlt.1208@gmail.com',
