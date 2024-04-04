@@ -18,12 +18,12 @@ header.clearfix
     div
       span
         | Họ và tên:
-      = @row[:full_name]
+      = @hash_data[:full_name]
     div
       span
         | Email:
-      a[href="mailto:#{@row[:email]}"]
-        = @row[:email]
+      a[href="mailto:#{@hash_data[:email]}"]
+        = @hash_data[:email]
 main
   table
     thead
@@ -51,16 +51,16 @@ main
           td
           td.total.desc
             - if key == :tax_rate
-              = @row[key].nil? ? "0%" : "#{@row[key]*100}%"
+              = @hash_data[key].nil? ? "0%" : "#{@hash_data[key]*100}%"
             - elsif %i[working_day number_of_dependents].include?(key)
-              = @row[key]
+              = @hash_data[key]
             - else
-              = number_to_currency(@row[key], unit: "VND", format: "%n %u", precision: 0)
+              = number_to_currency(@hash_data[key], unit: "VND", format: "%n %u", precision: 0)
       tr
         td.grand.total[colspan="4"]
           = @vn_headers[:total_income_received]
         td.grand.total
-          = number_to_currency(@row[:total_income_received], unit: "VND", format: "%n %u", precision: 0)
+          = number_to_currency(@hash_data[:total_income_received], unit: "VND", format: "%n %u", precision: 0)
   #notices
     div
       | NOTICE:

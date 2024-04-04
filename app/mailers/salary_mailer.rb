@@ -9,7 +9,9 @@ class SalaryMailer < ApplicationMailer
   def report(row, vn_headers)
     @vn_headers = vn_headers
     row.delete_at(0)
-    @row = Hash[[KEY_HEADERS, row].transpose]
-    mail(to: @row[:email], subject: "Bang Luong #{@row[:month]}")
+    @hash_data = Hash[[KEY_HEADERS, row].transpose]
+    return if @hash_data[:email].blank?
+
+    mail(to: @hash_data[:email], subject: "Bang Luong #{@hash_data[:month]}")
   end
 end
