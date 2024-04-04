@@ -4,7 +4,7 @@ class HomesController < ApplicationController
 
   # rubocop:disable Metrics/MethodLength
   def report
-    @row = {
+    @hash_data = {
       email: 'dat.tlt.1208@gmail.com',
       full_name: 'Tran Le Thanh Dat',
       salary_by_working_day: '500000',

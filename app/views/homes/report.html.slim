@@ -24,8 +24,8 @@ header.clearfix
     div
       span
         | Email:
-      a[href="mailto:#{@row[:email]}"]
-        = @row[:email]
+      a[href="mailto:#{@hash_data[:email]}"]
+        = @hash_data[:email]
 main
   table
     thead
@@ -52,15 +52,15 @@ main
           td
           td.total.desc
             - if key == :tax_rate
-              = @row[key].to_s + "%"
+              = @hash_data[key].to_s + "%"
             - else
-              = number_to_currency(@row[key], unit: "VND", format: "%n %u", precision: 0)
+              = number_to_currency(@hash_data[key], unit: "VND", format: "%n %u", precision: 0)
   
       tr
         td.grand.total[colspan="4"]
           = @vn_headers[:total_income_received]
         td.grand.total
-          = number_to_currency(@row[:total_income_received], unit: "VND", format: "%n %u", precision: 0)
+          = number_to_currency(@hash_data[:total_income_received], unit: "VND", format: "%n %u", precision: 0)
   #notices
     div
       | NOTICE:
