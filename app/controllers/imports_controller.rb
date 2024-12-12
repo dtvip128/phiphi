@@ -19,7 +19,7 @@ class ImportsController < ApplicationController # rubocop:disable Style/Document
       taxable_income: 'Thu nhập tính thuế',
       tax_rate: 'Thuế suất',
       personal_income_tax: 'Thuế TNCN phải nộp',
-      paid_bonuses: 'Đã thanh toán',
+      paid_bonuses: 'Tạm ứng',
       total_income_received: 'Lương thực lĩnh'
     }
 
