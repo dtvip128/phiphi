@@ -3,7 +3,7 @@ header.clearfix
   / #logo
   /   = image_tag "paracel-logo.png"
   h1
-    | Bảng lương #{Date.current.month - 1}-#{Date.current.year}
+    | Bảng lương #{@hash_data[:month]}
   #company.clearfix
     div
       | Paracel Technology Solutions .Ltd Company
